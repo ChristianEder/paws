@@ -1,0 +1,19 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/dotnet
+{
+	"name": "PAWS",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": { 
+		}
+	},
+
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
+
+	"extensions": [
+		"ms-dotnettools.csharp",
+	],
+	"forwardPorts": [ ]
+}
