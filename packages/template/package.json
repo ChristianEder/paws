@@ -2,6 +2,7 @@
   "name": "paws-template",
   "version": "1.0.0",
   "description": "PAWS template",
+  "homepage": "https://github.com/ChristianEder/paws/packages/template",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -40,18 +41,18 @@
     "email": "christian.johann.eder@googlemail.com"
   },
   "repository": {
-    "url": "https://github.com/ChristianEder/template"
+    "url": "https://github.com/ChristianEder/paws.git"
   },
   "devDependencies": {
     "jsii": "1.46.0",
-    "jsii-pacmak": "1.46.0"
-  },
-  "dependencies": {
+    "jsii-pacmak": "1.46.0",
     "@aws-cdk/core": "1.134.0",
-    "@aws-cdk/aws-s3": "1.134.0"
+    "@aws-cdk/aws-s3": "1.134.0",
+    "constructs": "3.3.162"
   },
   "peerDependencies": {
     "@aws-cdk/core": "1.134.0",
+    "@aws-cdk/aws-s3": "1.134.0",
     "constructs": "3.3.162"
   }
 }
