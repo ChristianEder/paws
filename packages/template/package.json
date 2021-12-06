@@ -1,0 +1,57 @@
+{
+  "name": "paws-template",
+  "version": "1.0.0",
+  "description": "PAWS template",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "jsii -vvv",
+    "build:watch": "jsii -w",
+    "package": "jsii-pacmak -vvv",
+    "test": "echo 'No tests here...'"
+  },
+  "keywords": [
+    "jsii",
+    "cdk"
+  ],
+  "jsii": {
+    "outdir": "dist",
+    "targets": {
+      "python": {
+        "distName": "paws.template",
+        "module": "paws.template"
+      },
+      "java": {
+        "package": "paws.template",
+        "maven": {
+          "groupId": "com.paws",
+          "artifactId": "template"
+        }
+      },
+      "dotnet": {
+        "namespace": "Paws.template",
+        "packageId": "Paws.template"
+      }
+    }
+  },
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Christian Eder",
+    "email": "christian.johann.eder@googlemail.com"
+  },
+  "repository": {
+    "url": "https://github.com/ChristianEder/template"
+  },
+  "devDependencies": {
+    "jsii": "1.46.0",
+    "jsii-pacmak": "1.46.0"
+  },
+  "dependencies": {
+    "@aws-cdk/core": "1.134.0",
+    "@aws-cdk/aws-s3": "1.134.0"
+  },
+  "peerDependencies": {
+    "@aws-cdk/core": "1.134.0",
+    "constructs": "3.3.162"
+  }
+}
