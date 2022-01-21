@@ -1,0 +1,5 @@
+.jsii
+.npmignore
+tsconfig.json
+lib/*.d.ts
+lib/*.js

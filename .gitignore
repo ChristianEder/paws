@@ -107,3 +107,6 @@ nuget.config
 
 examples/*/package.json
 examples/*/package-lock.json
+
+.user
+localspikes

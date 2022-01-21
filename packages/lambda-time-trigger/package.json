@@ -1,0 +1,77 @@
+{
+  "name": "paws-lambda-time-trigger",
+  "version": "1.0.0",
+  "description": "Implements sub-minute time trigger support to trigger AWS Lambda functions",
+  "homepage": "https://github.com/ChristianEder/paws/packages/lambda-time-trigger",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "jsii -vvv",
+    "build:watch": "jsii -w",
+    "package": "jsii-pacmak -vvv"
+  },
+  "keywords": [
+    "jsii",
+    "cdk",
+    "aws",
+    "lambda",
+    "time trigger",
+    "cron"
+  ],
+  "jsii": {
+    "outdir": "dist",
+    "targets": {
+      "python": {
+        "distName": "paws.lambda-time-trigger",
+        "module": "paws.lambda-time-trigger"
+      },
+      "java": {
+        "package": "paws.lambda.timetrigger",
+        "maven": {
+          "groupId": "com.paws",
+          "artifactId": "lambda.timetrigger"
+        }
+      },
+      "dotnet": {
+        "namespace": "Paws.Lambda.TimeTrigger",
+        "packageId": "Paws.Lambda.TimeTrigger"
+      }
+    }
+  },
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Christian Eder",
+    "email": "christian.johann.eder@googlemail.com"
+  },
+  "repository": {
+    "url": "https://github.com/ChristianEder/paws.git"
+  },
+  "devDependencies": {
+    "jsii": "1.46.0",
+    "jsii-pacmak": "1.46.0",
+    "constructs": "^10.0.0",
+    "source-map-support": "^0.5.16",
+    "@aws-cdk/aws-lambda": "1.139.0",
+    "@aws-cdk/aws-lambda-nodejs": "1.139.0",
+    "@aws-cdk/aws-stepfunctions": "1.139.0",
+    "@aws-cdk/aws-stepfunctions-tasks": "1.139.0",
+    "@aws-cdk/aws-events": "1.139.0",
+    "@aws-cdk/aws-events-targets": "1.139.0",
+    "@aws-cdk/core": "1.139.0",
+    "aws-cdk": "1.139.0",
+    "cron-parser": "4.2.1"
+  },
+  "peerDependencies": {
+    "constructs": "^10.0.0",
+    "source-map-support": "^0.5.16",
+    "@aws-cdk/aws-lambda": "1.139.0",
+    "@aws-cdk/aws-lambda-nodejs": "1.139.0",
+    "@aws-cdk/aws-stepfunctions": "1.139.0",
+    "@aws-cdk/aws-stepfunctions-tasks": "1.139.0",
+    "@aws-cdk/aws-events": "1.139.0",
+    "@aws-cdk/aws-events-targets": "1.139.0",
+    "@aws-cdk/core": "1.139.0",
+    "aws-cdk": "1.139.0",
+    "cron-parser": "4.2.1"
+  }
+}
