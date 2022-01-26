@@ -20,28 +20,9 @@ export interface TimeTriggerSchedule {
     readonly cron: CronOptionsWithSeconds;
 }
 
-export interface IRulePropsTransform {
-    (ruleProps: aws_events.RuleProps): aws_events.RuleProps;
-}
-
-export interface IStateMachinePropsTransform {
-    (stateMachine: aws_stepfunctions.StateMachineProps): aws_stepfunctions.StateMachineProps;
-}
-
-/** Defines an optional set of transforms to apply to the props of resources created by the TimeTrigger */
-export interface TimeTriggerTransforms {
-    /** Allows to override props for the EventBridge rule triggering the Lambda or Step Function */
-    readonly triggerRule?: IRulePropsTransform;
-    /** Allows to override props for the Step Function satte machine */
-    readonly stateMachine?: IStateMachinePropsTransform;
-}
-
 export interface TimeTriggerProps {
     /** Defines the schedule for a time trigger */
     readonly schedule: TimeTriggerSchedule;
-
-    /** Defines an optional set of transforms to apply to the props of resources created by the TimeTrigger */
-    readonly transforms?: TimeTriggerTransforms;
 }
 
 export class TimeTrigger extends Construct implements aws_lambda.IEventSource {
@@ -65,11 +46,11 @@ export class TimeTrigger extends Construct implements aws_lambda.IEventSource {
             //   so our queue-based solution anyway doesn't guarantuee absolute execution times, but only relative to the EventBridge execution time.
 
             // @ts-ignore this local is unused but since this is a CDK construct, its still required since the constructor call has side effects
-            const defaultScheduleRule = new events.Rule(this, scopedId + '-trigger-rule', this.transformProps({
+            const defaultScheduleRule = new aws_events.Rule(this, scopedId + '-trigger-rule', {
                 enabled: true,
                 targets: [new aws_events_targets.LambdaFunction(target)],
                 schedule: aws_events.Schedule.cron(restOfCronSchedule)
-            }, this.props.transforms?.triggerRule));
+            });
 
             return;
         }
@@ -111,21 +92,17 @@ export class TimeTrigger extends Construct implements aws_lambda.IEventSource {
 
         const stateMachine = createLoopItems.next(loop);
 
-        const triggerFunction = new aws_stepfunctions.StateMachine(this, scopedId + '-trigger-function', this.transformProps({
+        const triggerFunction = new aws_stepfunctions.StateMachine(this, scopedId + '-trigger-function', {
             stateMachineType: aws_stepfunctions.StateMachineType.EXPRESS,
             timeout: Duration.seconds(90),
             definition: stateMachine
-        }, this.props.transforms?.stateMachine));
+        });
 
         // @ts-ignore this local is unused but since this is a CDK construct, its still required since the constructor call has side effects
-        const triggerScheduleRule = new events.Rule(this, scopedId + 'trigger-rule', this.transformProps({
+        const triggerScheduleRule = new aws_events.Rule(this, scopedId + 'trigger-rule', {
             enabled: true,
             targets: [new aws_events_targets.SfnStateMachine(triggerFunction)],
             schedule: aws_events.Schedule.cron(restOfCronSchedule)
-        }, this.props.transforms?.triggerRule));
-    }
-
-    private transformProps<T>(props: T, transform?: (p: T) => T): T {
-        return transform ? transform(props) : props;
+        });
     }
 }

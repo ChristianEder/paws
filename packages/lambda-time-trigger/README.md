@@ -28,25 +28,6 @@ const timeTrigger = new TimeTrigger(this, 'time-trigger', {
 yourLambdaFunction.addEventSource(timeTrigger);
 ```
 
-## Advanced usage
-
-### Overriding props of created resources
-
-One example case in which you might want to override props of the resources created by the TimeTrigger construct is overriding the names of these resources. The TimeTrigger construct will not provide names - instead they will be derived by CDK based on their ID. If you want to override the names, or any other property, you can do this by specifying `transforms`:
-
-```typescript
-const timeTrigger = new TimeTrigger(this, 'time-trigger', {
-  schedule: {
-    cron: {
-      second: '*/5',
-    },
-  },
-  transforms: {
-    triggerRule: (r) => ({ ...r, ruleName: 'customized-rule-name' }),
-  },
-});
-```
-
 ## Known limitations
 
 ### Lambda execution time
