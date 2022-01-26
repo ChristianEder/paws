@@ -47,31 +47,19 @@
     "url": "https://github.com/ChristianEder/paws.git"
   },
   "devDependencies": {
-    "jsii": "1.46.0",
-    "jsii-pacmak": "1.46.0",
-    "constructs": "^10.0.0",
-    "source-map-support": "^0.5.16",
-    "@aws-cdk/aws-lambda": "1.139.0",
-    "@aws-cdk/aws-lambda-nodejs": "1.139.0",
-    "@aws-cdk/aws-stepfunctions": "1.139.0",
-    "@aws-cdk/aws-stepfunctions-tasks": "1.139.0",
-    "@aws-cdk/aws-events": "1.139.0",
-    "@aws-cdk/aws-events-targets": "1.139.0",
-    "@aws-cdk/core": "1.139.0",
-    "aws-cdk": "1.139.0",
-    "cron-parser": "4.2.1"
+    "jsii": "1.52.1",
+    "jsii-pacmak": "1.52.1",
+    "aws-cdk-lib": "2.8.0",
+    "constructs": "10.0.0"
   },
   "peerDependencies": {
-    "constructs": "^10.0.0",
-    "source-map-support": "^0.5.16",
-    "@aws-cdk/aws-lambda": "1.139.0",
-    "@aws-cdk/aws-lambda-nodejs": "1.139.0",
-    "@aws-cdk/aws-stepfunctions": "1.139.0",
-    "@aws-cdk/aws-stepfunctions-tasks": "1.139.0",
-    "@aws-cdk/aws-events": "1.139.0",
-    "@aws-cdk/aws-events-targets": "1.139.0",
-    "@aws-cdk/core": "1.139.0",
-    "aws-cdk": "1.139.0",
+    "aws-cdk-lib": "2.8.0",
+    "constructs": "^10.0.0"
+  },
+  "dependencies": {
     "cron-parser": "4.2.1"
-  }
+  },
+  "bundledDependencies": [
+    "cron-parser"
+  ]
 }
