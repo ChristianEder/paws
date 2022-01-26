@@ -1,8 +1,8 @@
 {
   "name": "paws-lambda-time-trigger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Implements sub-minute time trigger support to trigger AWS Lambda functions",
-  "homepage": "https://github.com/ChristianEder/paws/packages/lambda-time-trigger",
+  "homepage": "https://github.com/ChristianEder/paws/tree/main/packages/lambda-time-trigger",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
